@@ -18,11 +18,11 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* 🌲 ESCENA CON BOSQUE */
+/* 🌲 ESCENA */
 .scene {
   position: relative;
   width: 100%;
-  min-height: 100svh; /* altura adaptable móvil */
+  height: 100vh;
   background:
     radial-gradient(circle at bottom, rgba(0,0,0,.25), rgba(0,0,0,.6)),
     url("bosque.jpg");
@@ -48,12 +48,14 @@ body {
   text-align: center;
   z-index: 50;
 }
+
 .dedication .title {
   font-family: 'Great Vibes', cursive;
   font-size: 56px;
   color: #ffd36a;
   text-shadow: 0 0 15px rgba(255,200,80,0.8);
 }
+
 .dedication .phrase {
   font-family: 'Great Vibes', cursive;
   font-size: 32px;
@@ -64,6 +66,7 @@ body {
   animation: showPhrase 3s ease forwards;
   animation-delay: 7s;
 }
+
 @keyframes showPhrase {
   to { opacity: 1; transform: translateY(0); }
 }
@@ -77,12 +80,11 @@ body {
   z-index: 5;
 }
 
-/* POSICIONES */
-.o1 { left: 50%; transform: translateX(-50%) scale(1); z-index: 20; }
-.o2 { left: 22%; transform: scale(0.85); z-index: 15; opacity: 0.95; }
-.o3 { right: 22%; transform: scale(0.85); z-index: 15; opacity: 0.95; }
-.o4 { left: 5%; transform: scale(0.7); z-index: 10; opacity: 0.75; }
-.o5 { right: 5%; transform: scale(0.7); z-index: 10; opacity: 0.75; }
+.o1 { left: 50%; transform: translateX(-50%); z-index: 20; }
+.o2 { left: 22%; transform: scale(0.85); z-index: 15; opacity: .9; }
+.o3 { right: 22%; transform: scale(0.85); z-index: 15; opacity: .9; }
+.o4 { left: 5%; transform: scale(0.7); z-index: 10; opacity: .7; }
+.o5 { right: 5%; transform: scale(0.7); z-index: 10; opacity: .7; }
 
 /* TALLO */
 .stem {
@@ -90,14 +92,17 @@ body {
   bottom: 0;
   left: 50%;
   width: 12px;
-  height: 400px;
+  height: 600px;
   background: linear-gradient(to top, #0b3b1e, #1bbf6b);
   border-radius: 20px;
   transform-origin: bottom;
   transform: translateX(-50%) scaleY(0);
   animation: growStem 2.2s ease-out forwards;
 }
-@keyframes growStem { to { transform: translateX(-50%) scaleY(1); } }
+
+@keyframes growStem {
+  to { transform: translateX(-50%) scaleY(1); }
+}
 
 /* HOJAS */
 .leaves {
@@ -108,22 +113,27 @@ body {
   width: 260px;
   height: 140px;
 }
+
 .leaf {
   position: absolute;
   bottom: 0;
   width: 130px;
   height: 90px;
-  background: linear-gradient(to top right, rgba(0,255,160,0.3), rgba(0,120,60,0.95));
+  background: linear-gradient(to top right, rgba(0,255,160,.3), rgba(0,120,60,.95));
   border-radius: 80% 20% 70% 30%;
-  box-shadow: 0 0 18px rgba(0,255,160,0.4);
+  box-shadow: 0 0 18px rgba(0,255,160,.4);
   transform-origin: bottom;
   transform: scale(0);
   animation: growLeaf 1.2s ease-out forwards;
   animation-delay: 2s;
 }
+
 .leaf.left { left: 0; --r:-25deg; }
 .leaf.right { right: 0; --r:25deg; }
-@keyframes growLeaf { to { transform: rotate(var(--r)) scale(1); } }
+
+@keyframes growLeaf {
+  to { transform: rotate(var(--r)) scale(1); }
+}
 
 /* RAMAS */
 .branch {
@@ -135,9 +145,13 @@ body {
   transform: scaleX(0);
   transform-origin: left;
   opacity: 0;
-  animation: growBranch 0.8s ease-out forwards;
+  animation: growBranch .8s ease-out forwards;
 }
-@keyframes growBranch { to { transform: scaleX(1); opacity: 1; } }
+
+@keyframes growBranch {
+  to { transform: scaleX(1); opacity: 1; }
+}
+
 .b1 { top: 90px; left: 52%; transform: rotate(-20deg); animation-delay: 2.2s; }
 .b2 { top: 210px; left: 50%; transform: rotate(20deg); animation-delay: 2.6s; }
 .b3 { top: 330px; left: 52%; transform: rotate(-18deg); animation-delay: 3s; }
@@ -146,42 +160,58 @@ body {
 /* FLORES */
 .flower-wrapper {
   position: absolute;
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: 220px;
   opacity: 0;
   transform: scale(0);
   animation: bloom 1.2s ease-out forwards;
 }
-@keyframes bloom { to { opacity: 1; transform: scale(1); } }
+
+@keyframes bloom {
+  to { opacity: 1; transform: scale(1); }
+}
+
 .f1 { top: 30px; left: -30px; animation-delay: 2.4s; }
 .f2 { top: 150px; right: -40px; animation-delay: 2.8s; }
 .f3 { top: 270px; left: -25px; animation-delay: 3.2s; }
 .f4 { top: 390px; right: -35px; animation-delay: 3.6s; }
 
 /* FLOR */
-.flower { width: 100%; height: 100%; position: relative; animation: float 4s ease-in-out infinite; }
-@keyframes float { 50% { transform: translateY(-10px); } }
+.flower {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
 .petal {
   position: absolute;
   width: 120px;
   height: 150px;
   background: radial-gradient(circle at 30% 30%, #fff, #9c2cff, #00c8ff);
   border-radius: 60% 40% 50% 50%;
-  box-shadow: 0 0 20px rgba(120,0,255,0.8);
+  box-shadow: 0 0 20px rgba(120,0,255,.8);
 }
+
 .petal.top { top: -10px; left: 50%; transform: translateX(-50%); }
 .petal.left { top: 40px; left: 0; transform: rotate(-20deg); }
 .petal.right { top: 40px; right: 0; transform: rotate(20deg); }
+
 .center {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 50px; height: 50px;
+  width: 50px;
+  height: 50px;
   background: radial-gradient(circle, #ffe066, #ff8800);
   border-radius: 50%;
 }
 
-/* LUCIÉRNAGAS */
+/* ✨ LUCIÉRNAGAS */
 .firefly {
   position: absolute;
   width: 6px;
@@ -194,24 +224,42 @@ body {
   pointer-events: none;
   z-index: 40;
 }
+
 @keyframes glow { 50% { opacity: 1; } }
 @keyframes fly { to { transform: translate(var(--x), var(--y)); } }
 
-/* ✨ MEDIA QUERIES CELULAR */
+/* 📱 AJUSTES CELULAR */
 @media (max-width: 768px) {
-  .dedication .title { font-size: 38px; }
-  .dedication .phrase { font-size: 22px; padding: 0 15px; }
-  .orchid { width: 140px; height: 350px; }
-  .o1 { transform: translateX(-50%) scale(0.85); }
-  .o2, .o3 { display: none; }
-  .o4, .o5 { transform: scale(0.6); opacity: 0.4; }
+
+  .dedication { top: 5%; }
+
+  .dedication .title { font-size: 30px; }
+  .dedication .phrase { font-size: 18px; padding: 0 12px; }
+
+  .orchid {
+    width: 140px;
+    height: 360px;
+    bottom: -40px;
+  }
+
+  .o1 { transform: translateX(-50%) scale(0.8); }
+  .o2, .o3, .o4, .o5 { display: none; }
+
+  .stem { height: 300px; }
+
+  .leaves { width: 180px; height: 100px; }
+  .leaf { width: 90px; height: 60px; }
+
+  .flower-wrapper { width: 120px; height: 120px; }
+  .petal { width: 70px; height: 90px; }
+  .center { width: 30px; height: 30px; }
 }
 </style>
 </head>
 
 <body>
-<div class="scene">
 
+<div class="scene">
   <div class="dedication">
     <div class="title">Para Cintia</div>
     <div class="phrase">
@@ -225,7 +273,6 @@ body {
   <div class="orchid o3"></div>
   <div class="orchid o4"></div>
   <div class="orchid o5"></div>
-
 </div>
 
 <script>
@@ -253,25 +300,22 @@ document.querySelectorAll('.orchid').forEach(o => {
 });
 
 const scene = document.querySelector('.scene');
-setInterval(()=>{
-  const maxFireflies = window.innerWidth < 768 ? 40 : 120;
-  if(document.querySelectorAll('.firefly').length > maxFireflies) return;
-
+setInterval(() => {
+  if (document.querySelectorAll('.firefly').length > (innerWidth < 768 ? 40 : 120)) return;
   const f = document.createElement('div');
   f.className = 'firefly';
-  f.style.left = Math.random()*innerWidth + 'px';
-  f.style.top = Math.random()*innerHeight + 'px';
-  f.style.setProperty('--x',(Math.random()*120-60)+'px');
-  f.style.setProperty('--y',(-Math.random()*160)+'px');
-  f.style.animationDuration = `${14+Math.random()*6}s`;
+  f.style.left = Math.random() * innerWidth + 'px';
+  f.style.top = Math.random() * innerHeight + 'px';
+  f.style.setProperty('--x', (Math.random() * 160 - 80) + 'px');
+  f.style.setProperty('--y', (-Math.random() * 160) + 'px');
+  f.style.animationDuration = `${14 + Math.random() * 6}s`;
   scene.appendChild(f);
-  setTimeout(()=>f.remove(),18000);
-},120);
+  setTimeout(() => f.remove(), 18000);
+}, 120);
 </script>
 
 </body>
 </html>
-
 
 
 

@@ -231,29 +231,72 @@ body {
 /* 📱 AJUSTES CELULAR */
 @media (max-width: 768px) {
 
-  .dedication { top: 5%; }
-
-  .dedication .title { font-size: 30px; }
-  .dedication .phrase { font-size: 18px; padding: 0 12px; }
-
-  .orchid {
-    width: 160px;
-    height: 420px;
-    bottom: 60px;
+  body {
+    height: auto;
   }
 
-  .o1 { transform: translateX(-50%) scale(0.8); }
-  .o2, .o3, .o4, .o5 { display: none; }
+  .scene {
+    height: 100vh;
+    padding-top: 120px; /* empuja la escena hacia abajo */
+  }
 
-  .stem { height: 300px; }
+  .dedication {
+    top: 20px;
+  }
 
-  .leaves { width: 180px; height: 100px; }
-  .leaf { width: 90px; height: 60px; }
+  .dedication .title {
+    font-size: 34px;
+  }
 
-  .flower-wrapper { width: 120px; height: 120px; }
-  .petal { width: 70px; height: 90px; }
-  .center { width: 30px; height: 30px; }
+  .dedication .phrase {
+    font-size: 20px;
+    padding: 0 14px;
+  }
+
+  .orchid {
+    width: 200px;          /* MÁS GRANDE */
+    height: 520px;
+    bottom: 10px;          /* SUBE la flor */
+  }
+
+  .o1 {
+    transform: translateX(-50%) scale(0.95);
+  }
+
+  .o2, .o3, .o4, .o5 {
+    display: none;
+  }
+
+  .stem {
+    height: 380px;
+  }
+
+  .leaves {
+    width: 200px;
+    height: 120px;
+  }
+
+  .leaf {
+    width: 110px;
+    height: 70px;
+  }
+
+  .flower-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .petal {
+    width: 95px;
+    height: 115px;
+  }
+
+  .center {
+    width: 38px;
+    height: 38px;
+  }
 }
+
 </style>
 </head>
 
@@ -316,6 +359,7 @@ setInterval(() => {
 
 </body>
 </html>
+
 
 
 

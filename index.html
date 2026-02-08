@@ -213,9 +213,20 @@ body {
 
 @media (max-width: 768px) {
 
+  /* ESCENA VERTICAL */
+  .scene {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  /* TEXTO */
   .dedication {
-    top: 4%;
-    padding: 0 12px;
+    position: relative;
+    top: 0;
+    margin-top: 20px;
+    padding: 0 14px;
   }
 
   .dedication .title {
@@ -228,45 +239,53 @@ body {
     animation-delay: 5.5s;
   }
 
+  /* ORQUÍDEAS: YA NO ABSOLUTAS */
   .orchid {
+    position: relative;
+    bottom: 0;
+    margin: 40px 0;
     width: 200px;
     height: 520px;
   }
 
+  /* ESCALAS PARA PROFUNDIDAD */
+  .o1 {
+    transform: scale(0.95);
+    z-index: 5;
+  }
+
+  .o2 {
+    transform: scale(0.75);
+    opacity: 0.5;
+  }
+
+  .o3 {
+    transform: scale(0.7);
+    opacity: 0.45;
+  }
+
+  /* OCULTAMOS EXTRAS */
   .o4, .o5 {
     display: none;
   }
 
-  .o1 {
-    left: 50%;
-    transform: translateX(-50%) scale(0.9);
-  }
-
-  .o2 {
-    left: 6%;
-    transform: scale(0.65);
-    opacity: 0.6;
-  }
-
-  .o3 {
-    right: 6%;
-    transform: scale(0.65);
-    opacity: 0.6;
-  }
-
+  /* TALLO */
   .stem {
     height: 480px;
   }
 
+  /* FLORES */
   .flower-wrapper {
     width: 160px;
     height: 160px;
   }
 
+  /* LUCIÉRNAGAS */
   .firefly {
     box-shadow: 0 0 8px gold;
   }
 }
+
 
 </style>
 </head>
@@ -332,6 +351,7 @@ setInterval(()=>{
 </script>
 </body>
 </html>
+
 
 
 

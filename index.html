@@ -228,6 +228,7 @@ body {
 
 /* 📱 CELULAR */
 @media (max-width: 768px) {
+
   body {
     overflow-y: auto;
   }
@@ -235,13 +236,18 @@ body {
   .orchids {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 0;
+    padding-bottom: 60px;
   }
 
   .orchid {
-    transform: scale(0.75);
+    height: 420px;        /* 👈 clave */
+    margin-bottom: 80px; /* 👈 separación real */
+    transform: scale(0.7);
   }
+
 }
+
 </style>
 </head>
 

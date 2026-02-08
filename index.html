@@ -12,26 +12,26 @@
 
 body {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background: black;
+  overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
-/* 🌲 ESCENA */
+/* 🌲 ESCENA CON BOSQUE */
 .scene {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh; /* altura adaptable móvil */
   background:
     radial-gradient(circle at bottom, rgba(0,0,0,.25), rgba(0,0,0,.6)),
     url("bosque.jpg");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-/* sombreado */
 .scene::after {
   content: "";
   position: absolute;
@@ -42,23 +42,21 @@ body {
 
 /* TEXTO */
 .dedication {
-  position: relative;
-  padding-top: 6vh;
+  position: absolute;
+  top: 8%;
+  width: 100%;
   text-align: center;
   z-index: 50;
-  padding-inline: 16px;
 }
-
 .dedication .title {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(36px, 7vw, 56px);
+  font-size: 56px;
   color: #ffd36a;
   text-shadow: 0 0 15px rgba(255,200,80,0.8);
 }
-
 .dedication .phrase {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(20px, 4.5vw, 32px);
+  font-size: 32px;
   color: #ffe8b0;
   margin-top: 10px;
   opacity: 0;
@@ -66,33 +64,25 @@ body {
   animation: showPhrase 3s ease forwards;
   animation-delay: 7s;
 }
-
 @keyframes showPhrase {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* CONTENEDOR ORQUÍDEAS */
-.orchids {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 2vw;
-  padding-bottom: 10vh;
+/* ORQUÍDEAS */
+.orchid {
+  position: absolute;
+  bottom: -60px;
+  width: 260px;
+  height: 650px;
   z-index: 5;
 }
 
-/* ORQUÍDEA */
-.orchid {
-  width: 260px;
-  height: 650px;
-  position: relative;
-}
-
-/* ESCALAS PC */
-.o1 { transform: scale(1); }
-.o2, .o3 { transform: scale(0.85); }
-.o4, .o5 { transform: scale(0.7); opacity: .8; }
+/* POSICIONES */
+.o1 { left: 50%; transform: translateX(-50%) scale(1); z-index: 20; }
+.o2 { left: 22%; transform: scale(0.85); z-index: 15; opacity: 0.95; }
+.o3 { right: 22%; transform: scale(0.85); z-index: 15; opacity: 0.95; }
+.o4 { left: 5%; transform: scale(0.7); z-index: 10; opacity: 0.75; }
+.o5 { right: 5%; transform: scale(0.7); z-index: 10; opacity: 0.75; }
 
 /* TALLO */
 .stem {
@@ -107,21 +97,17 @@ body {
   transform: translateX(-50%) scaleY(0);
   animation: growStem 2.2s ease-out forwards;
 }
-
-@keyframes growStem {
-  to { transform: translateX(-50%) scaleY(1); }
-}
+@keyframes growStem { to { transform: translateX(-50%) scaleY(1); } }
 
 /* HOJAS */
 .leaves {
   position: absolute;
   bottom: 0;
   left: 50%;
+  transform: translateX(-50%);
   width: 260px;
   height: 140px;
-  transform: translateX(-50%);
 }
-
 .leaf {
   position: absolute;
   bottom: 0;
@@ -135,13 +121,9 @@ body {
   animation: growLeaf 1.2s ease-out forwards;
   animation-delay: 2s;
 }
-
-.leaf.left { left: 0; transform: rotate(-25deg) scale(0); }
-.leaf.right { right: 0; transform: rotate(25deg) scale(0); }
-
-@keyframes growLeaf {
-  to { transform: rotate(var(--r,0deg)) scale(1); }
-}
+.leaf.left { left: 0; --r:-25deg; }
+.leaf.right { right: 0; --r:25deg; }
+@keyframes growLeaf { to { transform: rotate(var(--r)) scale(1); } }
 
 /* RAMAS */
 .branch {
@@ -155,11 +137,7 @@ body {
   opacity: 0;
   animation: growBranch 0.8s ease-out forwards;
 }
-
-@keyframes growBranch {
-  to { transform: scaleX(1); opacity: 1; }
-}
-
+@keyframes growBranch { to { transform: scaleX(1); opacity: 1; } }
 .b1 { top: 90px; left: 52%; transform: rotate(-20deg); animation-delay: 2.2s; }
 .b2 { top: 210px; left: 50%; transform: rotate(20deg); animation-delay: 2.6s; }
 .b3 { top: 330px; left: 52%; transform: rotate(-18deg); animation-delay: 3s; }
@@ -174,11 +152,7 @@ body {
   transform: scale(0);
   animation: bloom 1.2s ease-out forwards;
 }
-
-@keyframes bloom {
-  to { opacity: 1; transform: scale(1); }
-}
-
+@keyframes bloom { to { opacity: 1; transform: scale(1); } }
 .f1 { top: 30px; left: -30px; animation-delay: 2.4s; }
 .f2 { top: 150px; right: -40px; animation-delay: 2.8s; }
 .f3 { top: 270px; left: -25px; animation-delay: 3.2s; }
@@ -187,19 +161,17 @@ body {
 /* FLOR */
 .flower { width: 100%; height: 100%; position: relative; animation: float 4s ease-in-out infinite; }
 @keyframes float { 50% { transform: translateY(-10px); } }
-
 .petal {
   position: absolute;
   width: 120px;
   height: 150px;
   background: radial-gradient(circle at 30% 30%, #fff, #9c2cff, #00c8ff);
   border-radius: 60% 40% 50% 50%;
+  box-shadow: 0 0 20px rgba(120,0,255,0.8);
 }
-
 .petal.top { top: -10px; left: 50%; transform: translateX(-50%); }
 .petal.left { top: 40px; left: 0; transform: rotate(-20deg); }
 .petal.right { top: 40px; right: 0; transform: rotate(20deg); }
-
 .center {
   position: absolute;
   top: 50%; left: 50%;
@@ -209,7 +181,7 @@ body {
   border-radius: 50%;
 }
 
-/* ✨ LUCIÉRNAGAS */
+/* LUCIÉRNAGAS */
 .firefly {
   position: absolute;
   width: 6px;
@@ -222,32 +194,18 @@ body {
   pointer-events: none;
   z-index: 40;
 }
-
 @keyframes glow { 50% { opacity: 1; } }
 @keyframes fly { to { transform: translate(var(--x), var(--y)); } }
 
-/* 📱 CELULAR */
+/* ✨ MEDIA QUERIES CELULAR */
 @media (max-width: 768px) {
-
-  body {
-    overflow-y: auto;
-  }
-
-  .orchids {
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding-bottom: 60px;
-  }
-
-  .orchid {
-    height: 420px;        /* 👈 clave */
-    margin-bottom: 80px; /* 👈 separación real */
-    transform: scale(0.7);
-  }
-
+  .dedication .title { font-size: 38px; }
+  .dedication .phrase { font-size: 22px; padding: 0 15px; }
+  .orchid { width: 180px; height: 520px; }
+  .o1 { transform: translateX(-50%) scale(0.85); }
+  .o2, .o3 { display: none; }
+  .o4, .o5 { transform: scale(0.6); opacity: 0.4; }
 }
-
 </style>
 </head>
 
@@ -262,13 +220,11 @@ body {
     </div>
   </div>
 
-  <div class="orchids">
-    <div class="orchid o1"></div>
-    <div class="orchid o2"></div>
-    <div class="orchid o3"></div>
-    <div class="orchid o4"></div>
-    <div class="orchid o5"></div>
-  </div>
+  <div class="orchid o1"></div>
+  <div class="orchid o2"></div>
+  <div class="orchid o3"></div>
+  <div class="orchid o4"></div>
+  <div class="orchid o5"></div>
 
 </div>
 
@@ -298,20 +254,24 @@ document.querySelectorAll('.orchid').forEach(o => {
 
 const scene = document.querySelector('.scene');
 setInterval(()=>{
-  if(document.querySelectorAll('.firefly').length > 120) return;
+  const maxFireflies = window.innerWidth < 768 ? 40 : 120;
+  if(document.querySelectorAll('.firefly').length > maxFireflies) return;
+
   const f = document.createElement('div');
   f.className = 'firefly';
   f.style.left = Math.random()*innerWidth + 'px';
   f.style.top = Math.random()*innerHeight + 'px';
-  f.style.setProperty('--x',(Math.random()*200-100)+'px');
-  f.style.setProperty('--y',(-Math.random()*200)+'px');
-  f.style.animationDuration = `${12+Math.random()*6}s`;
+  f.style.setProperty('--x',(Math.random()*120-60)+'px');
+  f.style.setProperty('--y',(-Math.random()*160)+'px');
+  f.style.animationDuration = `${14+Math.random()*6}s`;
   scene.appendChild(f);
   setTimeout(()=>f.remove(),18000);
-},60);
+},120);
 </script>
 
 </body>
 </html>
+
+
 
 

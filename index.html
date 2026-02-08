@@ -210,6 +210,64 @@ body {
 }
 @keyframes glow { 50% { opacity: 1; } }
 @keyframes fly { to { transform: translate(var(--x), var(--y)); } }
+
+@media (max-width: 768px) {
+
+  .dedication {
+    top: 4%;
+    padding: 0 12px;
+  }
+
+  .dedication .title {
+    font-size: 38px;
+  }
+
+  .dedication .phrase {
+    font-size: 22px;
+    line-height: 1.4;
+    animation-delay: 5.5s;
+  }
+
+  .orchid {
+    width: 200px;
+    height: 520px;
+  }
+
+  .o4, .o5 {
+    display: none;
+  }
+
+  .o1 {
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+  }
+
+  .o2 {
+    left: 6%;
+    transform: scale(0.65);
+    opacity: 0.6;
+  }
+
+  .o3 {
+    right: 6%;
+    transform: scale(0.65);
+    opacity: 0.6;
+  }
+
+  .stem {
+    height: 480px;
+  }
+
+  .flower-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .firefly {
+    box-shadow: 0 0 8px gold;
+  }
+}
+
 </style>
 </head>
 
@@ -272,70 +330,9 @@ setInterval(()=>{
   setTimeout(()=>f.remove(),18000);
 },60);
 </script>
-@media (max-width: 768px) {
-
-  /* TEXTO */
-  .dedication {
-    top: 4%;
-    padding: 0 12px;
-  }
-
-  .dedication .title {
-    font-size: 38px;
-  }
-
-  .dedication .phrase {
-    font-size: 22px;
-    line-height: 1.4;
-  }
-
-  /* ORQUÍDEAS */
-  .orchid {
-    width: 200px;
-    height: 520px;
-  }
-
-  /* SOLO 3 ORQUÍDEAS EN MÓVIL */
-  .o4, .o5 {
-    display: none;
-  }
-
-  .o1 {
-    left: 50%;
-    transform: translateX(-50%) scale(0.9);
-  }
-
-  .o2 {
-    left: 6%;
-    transform: scale(0.65);
-    opacity: 0.6;
-  }
-
-  .o3 {
-    right: 6%;
-    transform: scale(0.65);
-    opacity: 0.6;
-  }
-
-  /* TALLO MÁS CORTO */
-  .stem {
-    height: 480px;
-  }
-
-  /* FLORES MÁS PEQUEÑAS */
-  .flower-wrapper {
-    width: 160px;
-    height: 160px;
-  }
-
-  /* LUCES MÁS SUAVES */
-  .firefly {
-    box-shadow: 0 0 8px gold;
-  }
-}
-
 </body>
 </html>
+
 
 
 

@@ -84,7 +84,7 @@ body {
 
 /* ORQUÍDEA */
 .orchid {
-  width: min(260px, 60vw);
+  width: 260px;
   height: 650px;
   position: relative;
 }
@@ -99,12 +99,12 @@ body {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 10px;
-  height: 100%;
+  width: 12px;
+  height: 600px;
   background: linear-gradient(to top, #0b3b1e, #1bbf6b);
   border-radius: 20px;
-  transform: translateX(-50%) scaleY(0);
   transform-origin: bottom;
+  transform: translateX(-50%) scaleY(0);
   animation: growStem 2.2s ease-out forwards;
 }
 
@@ -117,21 +117,21 @@ body {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 100%;
-  height: 120px;
+  width: 260px;
+  height: 140px;
   transform: translateX(-50%);
 }
 
 .leaf {
   position: absolute;
   bottom: 0;
-  width: 50%;
-  height: 80px;
+  width: 130px;
+  height: 90px;
   background: linear-gradient(to top right, rgba(0,255,160,0.3), rgba(0,120,60,0.95));
   border-radius: 80% 20% 70% 30%;
   box-shadow: 0 0 18px rgba(0,255,160,0.4);
-  transform: scale(0);
   transform-origin: bottom;
+  transform: scale(0);
   animation: growLeaf 1.2s ease-out forwards;
   animation-delay: 2s;
 }
@@ -146,30 +146,30 @@ body {
 /* RAMAS */
 .branch {
   position: absolute;
-  width: 30%;
-  height: 6px;
+  width: 70px;
+  height: 8px;
   background: linear-gradient(to right, #0b3b1e, #1bbf6b);
   border-radius: 20px;
   transform: scaleX(0);
   transform-origin: left;
   opacity: 0;
-  animation: growBranch .8s ease-out forwards;
+  animation: growBranch 0.8s ease-out forwards;
 }
 
 @keyframes growBranch {
   to { transform: scaleX(1); opacity: 1; }
 }
 
-.b1 { top: 15%; left: 52%; transform: rotate(-20deg); animation-delay: 2.2s; }
-.b2 { top: 30%; left: 50%; transform: rotate(20deg); animation-delay: 2.6s; }
-.b3 { top: 45%; left: 52%; transform: rotate(-18deg); animation-delay: 3s; }
-.b4 { top: 60%; left: 50%; transform: rotate(15deg); animation-delay: 3.4s; }
+.b1 { top: 90px; left: 52%; transform: rotate(-20deg); animation-delay: 2.2s; }
+.b2 { top: 210px; left: 50%; transform: rotate(20deg); animation-delay: 2.6s; }
+.b3 { top: 330px; left: 52%; transform: rotate(-18deg); animation-delay: 3s; }
+.b4 { top: 450px; left: 50%; transform: rotate(15deg); animation-delay: 3.4s; }
 
 /* FLORES */
 .flower-wrapper {
   position: absolute;
-  width: 70%;
-  aspect-ratio: 1;
+  width: 220px;
+  height: 220px;
   opacity: 0;
   transform: scale(0);
   animation: bloom 1.2s ease-out forwards;
@@ -179,46 +179,37 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-.f1 { top: 5%; left: -15%; animation-delay: 2.4s; }
-.f2 { top: 25%; right: -18%; animation-delay: 2.8s; }
-.f3 { top: 45%; left: -15%; animation-delay: 3.2s; }
-.f4 { top: 65%; right: -18%; animation-delay: 3.6s; }
+.f1 { top: 30px; left: -30px; animation-delay: 2.4s; }
+.f2 { top: 150px; right: -40px; animation-delay: 2.8s; }
+.f3 { top: 270px; left: -25px; animation-delay: 3.2s; }
+.f4 { top: 390px; right: -35px; animation-delay: 3.6s; }
 
 /* FLOR */
-.flower {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  50% { transform: translateY(-10px); }
-}
+.flower { width: 100%; height: 100%; position: relative; animation: float 4s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-10px); } }
 
 .petal {
   position: absolute;
-  width: 55%;
-  height: 70%;
+  width: 120px;
+  height: 150px;
   background: radial-gradient(circle at 30% 30%, #fff, #9c2cff, #00c8ff);
   border-radius: 60% 40% 50% 50%;
 }
 
-.petal.top { top: -5%; left: 50%; transform: translateX(-50%); }
-.petal.left { top: 25%; left: 0; transform: rotate(-20deg); }
-.petal.right { top: 25%; right: 0; transform: rotate(20deg); }
+.petal.top { top: -10px; left: 50%; transform: translateX(-50%); }
+.petal.left { top: 40px; left: 0; transform: rotate(-20deg); }
+.petal.right { top: 40px; right: 0; transform: rotate(20deg); }
 
 .center {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 25%;
-  height: 25%;
+  width: 50px; height: 50px;
   background: radial-gradient(circle, #ffe066, #ff8800);
   border-radius: 50%;
 }
 
-/* LUCIÉRNAGAS */
+/* ✨ LUCIÉRNAGAS */
 .firefly {
   position: absolute;
   width: 6px;
@@ -237,6 +228,10 @@ body {
 
 /* 📱 CELULAR */
 @media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+
   .orchids {
     flex-direction: column;
     align-items: center;
@@ -244,7 +239,7 @@ body {
   }
 
   .orchid {
-    transform: scale(.75) !important;
+    transform: scale(0.75);
   }
 }
 </style>
@@ -312,3 +307,4 @@ setInterval(()=>{
 
 </body>
 </html>
+

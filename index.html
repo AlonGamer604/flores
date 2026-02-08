@@ -42,7 +42,7 @@ body {
 /* TEXTO */
 .dedication {
   position: absolute;
-  top: 7%;
+  top: 6%;
   width: 100%;
   text-align: center;
   z-index: 50;
@@ -80,10 +80,10 @@ body {
 }
 
 .o1 { left: 50%; transform: translateX(-50%) scale(1); z-index: 20; }
-.o2 { left: 22%; transform: scale(0.85); z-index: 15; opacity: 0.95; }
-.o3 { right: 22%; transform: scale(0.85); z-index: 15; opacity: 0.95; }
-.o4 { left: 5%; transform: scale(0.7); z-index: 10; opacity: 0.75; }
-.o5 { right: 5%; transform: scale(0.7); z-index: 10; opacity: 0.75; }
+.o2 { left: 22%; transform: scale(0.85); z-index: 15; }
+.o3 { right: 22%; transform: scale(0.85); z-index: 15; }
+.o4 { left: 5%; transform: scale(0.7); z-index: 10; }
+.o5 { right: 5%; transform: scale(0.7); z-index: 10; }
 
 /* TALLO */
 .stem {
@@ -103,60 +103,7 @@ body {
   to { transform: translateX(-50%) scaleY(1); }
 }
 
-/* HOJAS */
-.leaves {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-  height: 140px;
-}
-
-.leaf {
-  position: absolute;
-  bottom: 0;
-  width: 130px;
-  height: 90px;
-  background: linear-gradient(to top right, rgba(0,255,160,0.3), rgba(0,120,60,0.95));
-  border-radius: 80% 20% 70% 30%;
-  box-shadow: 0 0 18px rgba(0,255,160,0.4);
-  transform-origin: bottom;
-  transform: scale(0);
-  animation: growLeaf 1.2s ease-out forwards;
-  animation-delay: 2s;
-}
-
-.leaf.left { left: 0; --r:-25deg; }
-.leaf.right { right: 0; --r:25deg; }
-
-@keyframes growLeaf {
-  to { transform: rotate(var(--r)) scale(1); }
-}
-
-/* RAMAS */
-.branch {
-  position: absolute;
-  width: 70px;
-  height: 8px;
-  background: linear-gradient(to right, #0b3b1e, #1bbf6b);
-  border-radius: 20px;
-  transform: scaleX(0);
-  transform-origin: left;
-  opacity: 0;
-  animation: growBranch 0.8s ease-out forwards;
-}
-
-@keyframes growBranch {
-  to { transform: scaleX(1); opacity: 1; }
-}
-
-.b1 { top: 90px; left: 52%; transform: rotate(-20deg); animation-delay: 2.2s; }
-.b2 { top: 210px; left: 50%; transform: rotate(20deg); animation-delay: 2.6s; }
-.b3 { top: 330px; left: 52%; transform: rotate(-18deg); animation-delay: 3s; }
-.b4 { top: 450px; left: 50%; transform: rotate(15deg); animation-delay: 3.4s; }
-
-/* FLORES */
+/* FLORES (sin cambios internos) */
 .flower-wrapper {
   position: absolute;
   width: 220px;
@@ -168,46 +115,6 @@ body {
 
 @keyframes bloom {
   to { opacity: 1; transform: scale(1); }
-}
-
-.f1 { top: 30px; left: -30px; animation-delay: 2.4s; }
-.f2 { top: 150px; right: -40px; animation-delay: 2.8s; }
-.f3 { top: 270px; left: -25px; animation-delay: 3.2s; }
-.f4 { top: 390px; right: -35px; animation-delay: 3.6s; }
-
-.flower {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  50% { transform: translateY(-10px); }
-}
-
-.petal {
-  position: absolute;
-  width: 120px;
-  height: 150px;
-  background: radial-gradient(circle at 30% 30%, #fff, #9c2cff, #00c8ff);
-  border-radius: 60% 40% 50% 50%;
-  box-shadow: 0 0 20px rgba(120,0,255,0.8);
-}
-
-.petal.top { top: -10px; left: 50%; transform: translateX(-50%); }
-.petal.left { top: 40px; left: 0; transform: rotate(-20deg); }
-.petal.right { top: 40px; right: 0; transform: rotate(20deg); }
-
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-  background: radial-gradient(circle, #ffe066, #ff8800);
-  border-radius: 50%;
 }
 
 /* LUCIÉRNAGAS */
@@ -227,7 +134,7 @@ body {
 @keyframes glow { 50% { opacity: 1; } }
 @keyframes fly { to { transform: translate(var(--x), var(--y)); } }
 
-/* 📱 AJUSTES PARA CELULAR */
+/* 📱 RESPONSIVE REAL */
 @media (max-width: 768px) {
 
   .dedication .title {
@@ -236,14 +143,15 @@ body {
 
   .dedication .phrase {
     font-size: 22px;
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   .orchid {
-    width: 180px;
-    height: 520px;
-  }
-
+    width: 90vw;
+    max-width: 200px;
+    height: auto;
+    bottom: auto;
+    top: 38vh;
   }
 
   .o4, .o5 {
@@ -276,10 +184,6 @@ body {
 document.querySelectorAll('.orchid').forEach(o => {
   o.innerHTML = `
     <div class="stem"></div>
-    <div class="leaves">
-      <div class="leaf left"></div>
-      <div class="leaf right"></div>
-    </div>
     <div class="branch b1"></div>
     <div class="branch b2"></div>
     <div class="branch b3"></div>
@@ -297,7 +201,6 @@ document.querySelectorAll('.orchid').forEach(o => {
 });
 
 const scene = document.querySelector('.scene');
-
 setInterval(() => {
   if (document.querySelectorAll('.firefly').length > 60) return;
   const f = document.createElement('div');
@@ -314,11 +217,4 @@ setInterval(() => {
 
 </body>
 </html>
-
-
-
-
-
-
-
 

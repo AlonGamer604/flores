@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
+
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -302,12 +303,6 @@ body {
 .o3 .petal {
   filter: hue-rotate(-18deg);
 }
-/* ANULAR POSICIONES DE ESCRITORIO */
-.o1, .o2, .o3, .o4, .o5 {
-  left: auto !important;
-  right: auto !important;
-  transform: none !important;
-}
 
 .scene {
   overflow: visible;
@@ -316,6 +311,30 @@ body {
 body {
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+/* 🌸 MÓVIL: UNA SOLA ORQUÍDEA GRANDE Y CENTRADA */
+@media (max-width: 768px) {
+
+  /* Ocultar orquídeas secundarias */
+  .o2,
+  .o3,
+  .o4,
+  .o5 {
+    display: none;
+  }
+
+  /* Orquídea principal perfectamente centrada */
+  .o1 {
+    position: relative;
+    left: auto;
+    right: auto;
+    transform: none;
+    width: 220px;
+    height: 560px;
+    margin: 60px auto 40px;
+    z-index: 10;
+  }
 }
 
 
@@ -383,6 +402,7 @@ setInterval(()=>{
 </script>
 </body>
 </html>
+
 
 
 

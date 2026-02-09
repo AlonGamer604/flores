@@ -242,7 +242,7 @@ body {
   /* ORQUÍDEAS: YA NO ABSOLUTAS */
   .orchid {
     position: relative;
-    bottom: 10;
+    bottom: auto;
     margin: 40px 0;
     width: 200px;
     height: 520px;
@@ -302,7 +302,21 @@ body {
 .o3 .petal {
   filter: hue-rotate(-18deg);
 }
+/* ANULAR POSICIONES DE ESCRITORIO */
+.o1, .o2, .o3, .o4, .o5 {
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+}
 
+.scene {
+  overflow: visible;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 
 
 </style>
@@ -369,6 +383,7 @@ setInterval(()=>{
 </script>
 </body>
 </html>
+
 
 
 
